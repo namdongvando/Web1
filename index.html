@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <h1 class="text-center">Hello World</h1>
+
+
+    <div class="container">
+
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+            <form action="" onsubmit="return Login()" method="POST" role="form">
+                <legend>Đăng nhập</legend>
+                <div class="form-group">
+                    <label for="">Tài khoản</label>
+                    <input type="text" required class="form-control" name="username" placeholder="Tài khoản">
+                </div>
+                <div class="form-group">
+                    <label for="">Mật khẩu</label>
+                    <input type="password" required class="form-control" name="password" placeholder="Mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+
+        // https://localhost:5001/swagger/index.html
+
+        // https://localhost:5001/api/auth/login
+
+
+        function Login() {
+
+            var param = $("form").serializeArray();
+            console.log('param', param);
+
+            console.log('aaa');
+            var dataPost = {
+                "username": "string",
+                "password": "string"
+            };
+
+            $.map(param, function (elementOrValue, indexOrKey) {
+                console.log('elementOrValue', elementOrValue);
+                dataPost[elementOrValue.name] = elementOrValue.value;
+            });
+            console.log('dataPost', dataPost);
+
+            $.ajax({
+                type: "post",
+                url: "https://localhost:5001/api/auth/login",
+                data: JSON.stringify(dataPost),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                dataType: "json",
+                success: function (response) {
+                    console.log('res', response);
+                    window.localStorage.setItem("token", JSON.stringify(response.data));
+                    alert("Đăng nhập thành công")
+
+                },
+                error: function (response) {
+                    console.log('fail', response);
+                    alert("Tài khoản mật khẩu không đúng")
+
+                }
+            });
+            return false;
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

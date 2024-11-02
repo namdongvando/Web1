@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <h1 class="text-center">Chọn tất cả</h1>
+    <div class="container">
+
+        <form action="" method="post">
+            <div class="form-group">
+                <label>
+                    <input name="TatCa" targetitem="chon1" value="" type="checkbox" class="checkall" placeholder="">
+                    Tất cả
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon1" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon1" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon1" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon1" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon1" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon1" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <button>Chọn</button>
+        </form>
+
+        <form action="" method="post">
+            <div class="form-group">
+                <label>
+                    <input name="TatCa" targetitem="chon2" value="" type="checkbox" class="checkall" placeholder="">
+                    Tất cả
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon2" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon2" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon2" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon2" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon2" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input name="Chon[]" targetitem="chon2" class="checkitem" type="checkbox" value="" placeholder="">
+                    Chon
+                </label>
+            </div>
+            <button>Chọn</button>
+        </form>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".checkall").change(function (e) {
+                var isChecked = $(this).prop("checked");
+                var targetitem = $(this).attr("targetitem");
+                console.log('targetitem', targetitem);
+                console.log('isChecked', isChecked);
+                $(`.checkitem[targetitem='${targetitem}']`).prop("checked", isChecked);
+            });
+
+            $(".checkitem").change(function () {
+                // nhung dong đã check
+                var targetitem = $(this).attr("targetitem");
+                var isChekedItem = $(`.checkitem[targetitem='${targetitem}']:checked`).length;
+                var chekboxItem = $(`.checkitem[targetitem='${targetitem}']`).length;
+                // console.log('isChekedItem', isChekedItem);
+                // console.log('chekboxItem', chekboxItem);
+
+                $(`.checkall[targetitem='${targetitem}']`).prop("checked", isChekedItem == chekboxItem);
+                // var isCheckAll = false;
+                // if (isChekedItem == chekboxItem) {
+                //     isCheckAll = true;
+                // }
+                // console.log('isCheckAll', isCheckAll);
+
+                // $(".checkall").prop("checked", isCheckAll);
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nguyenvando.net</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1 class="text-center">Chọn tất cả</h1>
+    <h1 class="text-center">Ctrl + A để chọn tất cả</h1>
+    <h1 class="text-center">ESC bỏ chọn</h1>
+
+    <div class="container">
+
+        <a class="btn btn-f2 btn-primary" data-toggle="modal" href='#modal-id2'>Trigger modal (F2)</a>
+        <div class="modal fade" id="modal-id2">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Modal title F2</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-delete">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Thông báo</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-f4 btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal (F4)</a>
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <form action="" method="post">
+
+                    <div class="form-group">
+                        <label>
+                            <input name="Chon[]" targetitem="chon221" type="checkbox" class="checkall" placeholder="">
+                            Chọn tất cả
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input name="Chon[]" targetitem="chon221" type="checkbox" class="checkitem" placeholder="">
+                            Chọn
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input name="Chon[]" targetitem="chon221" type="checkbox" class="checkitem" placeholder="">
+                            Chọn
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input name="Chon[]" targetitem="chon221" type="checkbox" class="checkitem" placeholder="">
+                            Chọn
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input name="Chon[]" targetitem="chon221" type="checkbox" class="checkitem" placeholder="">
+                            Chọn
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input name="Chon[]" targetitem="chon221" type="checkbox" class="checkitem" placeholder="">
+                            Chọn
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input name="Chon[]" targetitem="chon221" type="checkbox" class="checkitem" placeholder="">
+                            Chọn
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $(".checkall").change(function (e) {
+                var isCheckAll = $(this).prop("checked");
+                var targetitem = $(this).attr("targetitem");
+                $(`.checkitem[targetitem='${targetitem}']`).prop("checked", isCheckAll);
+            });
+            $(".checkitem").change(function (e) {
+                var check = $(".checkitem").length;
+                var targetitem = $(this).attr("targetitem");
+                var checked = $(".checkitem:checked").length;
+                $(`.checkall[targetitem='${targetitem}']`).prop("checked", check == checked);
+            });
+
+            $(document).keydown(function (e) {
+                // ctrl + a ,ctrl + A  
+                if (e.ctrlKey) {
+                    if (e.keyCode == 65 || e.keyCode == 97) {
+                        $("input[type='checkbox']").prop("checked", true);
+                        e.preventDefault();
+                    }
+                }
+                // F4
+                if (e.which == 115) {
+                    $(".btn-f4").click();
+                }
+                // F2
+                if (e.which == 113) {
+                    $(".btn-f2").click();
+                }
+                // Delete
+                if (e.which == 46) {
+                    $("#modal-delete").modal("show");
+                }
+                // ESC
+                if (e.which == 27) {
+                    $("input[type='checkbox']").prop("checked", false);
+                    $("#modal-id").modal("hide");
+                    $("#modal-id2").modal("hide");
+                    $("#modal-delete").modal("hide");
+                    e.preventDefault();
+                }
+                // Enter
+                if (e.which == 13) {
+
+                }
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

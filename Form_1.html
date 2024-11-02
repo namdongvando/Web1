@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <form action="" method="post"> 
+        <fieldset>
+            <legend>Dia chi 1</legend>
+            <div class="form-group col-md-4">
+                <label>Tỉnh thành</label>
+                <select class="form-control tinhthanh" data-target="diachi1" name="tinhthanh">
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Quận/ huyện</label>
+                <select class="form-control quanhuyen" data-target="diachi1" name="quanhuyen"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Phường xã</label>
+                <select class="form-control phuongxa" data-target="diachi1" name="phuongxa"></select>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Dia chi 4</legend>
+            <div class="form-group col-md-4">
+                <label>Tỉnh thành</label>
+                <select class="form-control tinhthanh" data-target="diachi4" name="tinhthanh">
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Quận/ huyện</label>
+                <select class="form-control quanhuyen" data-target="diachi4" name="quanhuyen"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Phường xã</label>
+                <select class="form-control phuongxa" data-target="diachi4" name="phuongxa"></select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Dia chi 5</legend>
+            <div class="form-group col-md-4">
+                <label>Tỉnh thành</label>
+                <select class="form-control tinhthanh" data-target="diachi_5" name="tinhthanh">
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Quận/ huyện</label>
+                <select class="form-control quanhuyen" data-target="diachi_5" name="quanhuyen"></select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Phường xã</label>
+                <select class="form-control phuongxa" data-target="diachi_5" name="phuongxa"></select>
+            </div>
+        </fieldset>
+
+        <button type="button" id="chon">Click</button>
+
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/app_tinh_thanh.js"></script>
+
+
+</body>
+
+</html>

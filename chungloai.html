@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1 class="text-center">Hello World</h1>
+
+
+    <a class="btn btn-success" data-toggle="modal" href='#modal-id'>Thêm</a>
+    <form action="" id="FormPost" onsubmit="return TaoChungLoai()" method="post">
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Thêm chủng loại</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label>Tên chủng loại</label>
+                            <input name="name" required type="text" class="form-control" placeholder="Tên chung loại">
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <input name="description" required type="text" class="form-control"
+                                placeholder="Tên chung loại">
+                        </div>
+                        <!-- 
+                        
+{  
+  "name": "string 1",
+  "description": "string"
+}-->
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Danh sách chủng loại</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>Thao tác</td>
+                    <td>Tên</td>
+                    <td>Mô tả</td>
+                </tr>
+                <tbody id="danhsachchungloai"></tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <form action="" id="FormPut" onsubmit="return PutChungLoai()" method="post">
+        <div class="modal fade" id="modal_put">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Sửa chủng loại</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input name="id" type="hidden" value="">
+                        <div class="form-group">
+                            <label>Tên chủng loại</label>
+                            <input name="name" id="put_name" required type="text" class="form-control"
+                                placeholder="Tên chung loại">
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <input name="description" id="put_description" required type="text" class="form-control"
+                                placeholder="Tên chung loại">
+                        </div> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </form>
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+        // {
+        //   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",  
+        //   "name": "string",
+        //   "description": "string"
+        // }
+
+        function PutChungLoai() {
+            var item = $("#FormPut").serializeArray();
+            console.log('item', item);
+
+            var itemPost = {
+                "id": "",
+                "name": "",
+                "description": ""
+            }
+            $.map(item, function (elementOrValue, indexOrKey) {
+                itemPost[elementOrValue.name] = elementOrValue.value;
+            });
+            $.ajax({
+                type: "PUT",
+                url: "https://localhost:5001/api/ChungLoai",
+                headers: { "Content-Type": "application/json" },
+                data: JSON.stringify(itemPost),
+                dataType: "json",
+                success: function (response) {
+                    console.log('response', response);
+
+                    // tạo thành công
+                    // đóng modal
+                    $("#modal-id").modal("hide");
+                    // tải lại trang 
+                    window.location.reload();
+                }
+            });
+
+
+
+            return false;
+
+        }
+        function TaoChungLoai() {
+            var item = $("#FormPost").serializeArray();
+            console.log('item', item);
+
+            var itemPost = {
+                "name": "",
+                "description": ""
+            }
+            $.map(item, function (elementOrValue, indexOrKey) {
+                itemPost[elementOrValue.name] = elementOrValue.value;
+            });
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:5001/api/ChungLoai",
+                headers: { "Content-Type": "application/json" },
+                data: JSON.stringify(itemPost),
+                dataType: "json",
+                success: function (response) {
+                    console.log('response', response);
+
+                    // tạo thành công
+                    // đóng modal
+                    $("#modal-id").modal("hide");
+                    // tải lại trang 
+                    window.location.reload();
+                }
+            });
+
+
+
+            return false;
+        }
+
+
+        function suachungloai(id) {
+
+
+            console.log('id', id);
+            console.log('DSChungLoai', DSChungLoai);
+            var itemPut = null;
+            $.map(DSChungLoai, function (elementOrValue, indexOrKey) {
+                if (elementOrValue.id == id) {
+                    itemPut = elementOrValue;
+                }
+            });
+
+            // console.log('itemPut', itemPut);
+            // $("#put_name").val(itemPut.name);
+            // $("#put_description").val(itemPut.description);
+            // 20 dòng
+            $.map(itemPut, function (elementOrValue, indexOrKey) {
+                var name = indexOrKey;
+                var value = elementOrValue;
+                console.log('name', name);
+                console.log('value', value);
+                console.log(`#FormPut input[name='${name}']`);
+
+                $(`#FormPut input[name='${name}']`).val(value);
+            });
+
+            $("#modal_put").modal("show");
+        }
+        function xoachungloai(id) {
+            console.log('id', id);
+            if (window.confirm("bạn có muốn xoá chung loại này không?") == true) {
+                // gọi api xoá
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://localhost:5001/api/ChungLoai",
+                    headers: { "Content-Type": "application/json" },
+                    data: JSON.stringify({
+                        "id": id
+                    }),
+                    dataType: "json",
+                    success: function (response) {
+
+                    }
+                });
+            }
+
+        }
+        var DSChungLoai = [];
+        $(document).ready(function () {
+            $.ajax({
+                type: "get",
+                url: "https://localhost:5001/api/ChungLoai",
+                dataType: "json",
+                success: function (response) {
+                    var bodyHtml = "";
+                    $.map(response.data.data, function (elementOrValue, indexOrKey) {
+                        console.log('elementOrValue', elementOrValue);
+                        bodyHtml +=
+                            `<tr>
+                                <td>
+                                    <button class="btn btn-primary" onclick="suachungloai('${elementOrValue.id}')" >Sửa</button>
+                                    <button class="btn btn-danger" onclick="xoachungloai('${elementOrValue.id}')" >Xoá</button>
+                                </td>
+                                <td>${elementOrValue.name}</td>
+                                <td>${elementOrValue.description}</td>
+                            </tr>`;
+                    });
+
+                    DSChungLoai = response.data.data;
+                    $("#danhsachchungloai").html(bodyHtml);
+                    console.log(response);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

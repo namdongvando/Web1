@@ -1,0 +1,40 @@
+.navbar {
+    background-color: #242526;
+}
+
+.navbar-brand {
+    padding: 5px;
+}
+
+.navbar-brand .logo {
+    height: 40px;
+    width: 40px;
+}
+
+.search-conter input:focus,
+.search-conter:hover *,
+.search-conter * {
+    background-color: transparent !important;
+    border: none;
+    color: #aaa;
+    box-shadow: none;
+}
+
+.search-conter {
+    background-color: #3A3B3C;
+    border-radius: 90px;
+}
+
+.navbar-center li {
+    width: 10%;
+}
+
+.navbar-center {
+    width: 50%;
+    float: none;
+    margin: auto;
+}
+
+.collapse.navbar-collapse {
+    display: flex !important;
+}

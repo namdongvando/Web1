@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img class="logo" src="/img/logo.svg" alt="">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="search-conter">
+                            <button type="submit" class="btn btn-default">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </div>
+                    </form>
+
+                    <ul class="nav navbar-nav  navbar-center">
+                        <li><a href="#">
+                                <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+                            </a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-facetime-video" aria-hidden="true"></i></a></li>
+                        <li><a href="#">
+                                <i class="glyphicon glyphicon-shopping-cart"></i>
+
+
+                            </a></li>
+                        <li><a href="#">
+                                <i class="glyphicon glyphicon-folder-close"></i>
+
+                            </a></li>
+                        <li><a href="#">
+                                <i class="glyphicon glyphicon-play-circle"></i>
+                            </a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Menu
+                                <b class="caret"></b>
+                            </a>
+                            <div class="dropdown-menu" style="width: 500px;min-height: 300px;">
+                                <div class="col-md-6"><a href="#">Action</a></div>
+                                <div class="col-md-6"><a href="#">Another action</a></div>
+                                <div class="col-md-6"><a href="#">Something else here</a></div>
+                                <div class="col-md-6"><a href="#">Separated link</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <button style="margin-top: 7px;" class="btn btn-primary" data-toggle="modal"
+                                data-target='#modal_dangnhap'>Đăng
+                                nhập
+                                <i class="glyphicon glyphicon-user"></i>
+                            </button>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                User
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="modal_dangnhap">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Đăng nhập</h3>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label class=" control-label">Tài khoản</label>
+                            <div class="">
+                                <input type="text" required name="" id="input" class="form-control" required="required"
+                                    title="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class=" control-label">Mật khẩu</label>
+                            <div class="">
+                                <input type="password" name="" id="matkhau" class="form-control" required="required"
+                                    title="">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Đăng nhập
+                            <i class="glyphicon glyphicon-ok-sign"></i>
+                        </button>
+                        <a class="btn btn-primary" data-toggle="modal" href='#modal_dangky'>Đăng ký</a>
+                        <p>Hoặc</p>
+                        <a class="btn btn-primary" href="#">Đăng nhập với tài khoản facebook</a>
+                        <a class="btn btn-danger" href="#">Đăng nhập với tài khoản goole</a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_dangky">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Đăng ký</h3>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label class=" control-label">Họ tên</label>
+                            <div class="">
+                                <input type="text" placeholder="Nhập họ và tên" value="ho ten" name="" id="input"
+                                    class="form-control" required="required" title="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class=" control-label">SĐT</label>
+                            <div class="">
+                                <input type="text" maxlength="15" minlength="10" name="" id="input" class="form-control"
+                                    required="required" title="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class=" control-label">Tuổi</label>
+                            <div class="">
+                                <input type="number" max="60" min="18" name="" id="input" class="form-control"
+                                    required="required" title="">
+                            </div>
+                        </div>
+                        <fieldset>
+                            <legend>Sở thích</legend>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label">
+                                    <input type="checkbox" name="sothich[]" title="">
+                                    Chới game
+                                </label>
+                                <label class="col-md-12 control-label">
+                                    <input type="checkbox" name="sothich[]" title="">
+                                    Đọc sách
+                                </label>
+                                <label class="col-md-12 control-label">
+                                    <input type="checkbox" name="sothich[]" title="">
+                                    Du lịch
+                                </label>
+                                <label class="col-md-12 control-label">
+                                    <input type="checkbox" name="sothich[]" title="">
+                                    cầu lông
+                                </label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Địa chỉ</legend>
+                            <div class="form-group">
+                                <label class=" control-label">Tỉnh</label>
+                                <div class="">
+                                    <select name="" class="form-control" id="">
+                                        <option value="hn">Hà nội</option>
+                                        <option value="HCM">HCM</option>
+                                        <option value="DaNamg">DaNamg</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class=" control-label">Quận/ huyện</label>
+                                <div class="">
+                                    <select name="" class="form-control" id="">
+                                        <option value="hn">Hà nội</option>
+                                        <option value="HCM">HCM</option>
+                                        <option value="DaNamg">DaNamg</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class=" control-label">Phường xã</label>
+                                <div class="">
+                                    <select name="" class="form-control" id="">
+                                        <option value="hn">Hà nội</option>
+                                        <option value="HCM">HCM</option>
+                                        <option value="DaNamg">DaNamg</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Giới tính</legend>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label">
+                                    <input type="radio" name="GioiTinh" title="">
+                                    Nam
+                                </label>
+                                <label class="col-md-12 control-label">
+                                    <input type="radio" name="GioiTinh" title="">
+                                    Nữ
+                                </label>
+                                <label class="col-md-12 control-label">
+                                    <input type="radio" name="GioiTinh" title="">
+                                    Khác
+                                </label>
+                            </div>
+                        </fieldset>
+
+
+
+                        <div class="form-group">
+                            <label class=" control-label">Email</label>
+                            <div class="">
+                                <input type="email" name="" id="input" class="form-control" required="required"
+                                    title="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class=" control-label">Tài khoản</label>
+                            <div class="">
+                                <input type="text" name="" id="input" class="form-control" required="required" title="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class=" control-label">Mật khẩu</label>
+                            <div class="">
+                                <input type="password" name="" id="matkhau" class="form-control" required="required"
+                                    title="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class=" control-label">Nhập lại mật khẩu</label>
+                            <div class="">
+                                <input type="password" name="" id="matkhau" class="form-control" required="required"
+                                    title="">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Đăng ký
+                            <i class="glyphicon glyphicon-ok-sign"></i>
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
